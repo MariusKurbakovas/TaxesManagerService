@@ -9,16 +9,11 @@ using System.Text;
 namespace ProducerService
 {
     [ServiceContract]
-    public interface ITaxesManager
+    public interface ITaxesManagerService
     {
 
         [OperationContract]
-        int GetData(string municipality, DateTime dateTime);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
+        decimal GetTax(string municipality, DateTime dateTime);
     }
 
 

@@ -68,18 +68,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TaxesManager.svc" />
+    <Content Include="TaxesManagerService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManagers\ITaxDataManager.cs" />
     <Compile Include="DataManagers\TaxDataManager.cs" />
     <Compile Include="DataModels\DataBaseModel.cs" />
     <Compile Include="DataModels\MunicipalityDataModel.cs" />
     <Compile Include="DataModels\ScheduledTaxesDataModel.cs" />
-    <Compile Include="TaxesManager.svc.cs">
-      <DependentUpon>TaxesManager.svc</DependentUpon>
+    <Compile Include="TaxesManagerService.svc.cs">
+      <DependentUpon>TaxesManagerService.svc</DependentUpon>
     </Compile>
-    <Compile Include="ITaxesManager.cs" />
+    <Compile Include="ITaxesManagerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
