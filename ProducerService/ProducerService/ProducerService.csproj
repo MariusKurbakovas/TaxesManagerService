@@ -77,6 +77,7 @@
     <Compile Include="DataModels\DataBaseModel.cs" />
     <Compile Include="DataModels\MunicipalityDataModel.cs" />
     <Compile Include="DataModels\ScheduledTaxesDataModel.cs" />
+    <Compile Include="Models\TaxModel.cs" />
     <Compile Include="TaxesManagerService.svc.cs">
       <DependentUpon>TaxesManagerService.svc</DependentUpon>
     </Compile>

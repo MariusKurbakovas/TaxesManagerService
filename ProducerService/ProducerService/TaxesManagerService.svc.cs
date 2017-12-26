@@ -1,5 +1,6 @@
 ﻿using System;
 using ProducerService.DataManagers;
+using ProducerService.Models;
 
 namespace ProducerService
 {
@@ -9,7 +10,12 @@ namespace ProducerService
 
         public decimal GetTax(string municipality, DateTime dateTime)
         {
-            return _taxDataManager.GetTax(municipality, dateTime);
+            return _taxDataManager.GetTax(municipality, dateTime.Date);
+        }
+
+        public void InsertScheduledTax (TaxModel newRecord)
+        {
+            _taxDataManager.InsertScheduledTax(newRecord);
         }
     }
 }
