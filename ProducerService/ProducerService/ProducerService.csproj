@@ -48,6 +48,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -72,11 +75,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManagers\FileManager.cs" />
     <Compile Include="DataManagers\ITaxDataManager.cs" />
     <Compile Include="DataManagers\TaxDataManager.cs" />
     <Compile Include="DataModels\DataBaseModel.cs" />
     <Compile Include="DataModels\MunicipalityDataModel.cs" />
     <Compile Include="DataModels\ScheduledTaxesDataModel.cs" />
+    <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\TaxModel.cs" />
     <Compile Include="TaxesManagerService.svc.cs">
       <DependentUpon>TaxesManagerService.svc</DependentUpon>

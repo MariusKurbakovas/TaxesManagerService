@@ -54,9 +54,34 @@ namespace ProducerService.DataManagers
             {
                 Municipality = municipality,
                 Tax = newEntry.Tax,
-                PeriodStart = newEntry.PeriodStart,
-                PeriodEnd = newEntry.PeriodEnd
+                PeriodStart = newEntry.PeriodStart.Date,
+                PeriodEnd = newEntry.PeriodEnd.Date
             });
+            context.SaveChanges();
+        }
+
+        public void ImportTaxData(List<TaxModel> newData)
+        {
+            var allMunicipalities = context.Set<MunicipalityDataModel>().ToList();
+            foreach (var entry in newData)
+            {
+                var municipality = context.Set<MunicipalityDataModel>().FirstOrDefault(x => x.Name == entry.Municipality);
+                if (municipality == null)
+                {
+                    municipality = new MunicipalityDataModel()
+                    {
+                        Name = entry.Municipality
+                    };
+                    context.Set<MunicipalityDataModel>().Add(municipality);
+                }
+                context.Set<ScheduledTaxesDataModel>().Add(new ScheduledTaxesDataModel()
+                {
+                    Municipality = municipality,
+                    Tax = entry.Tax,
+                    PeriodStart = entry.PeriodStart.Date,
+                    PeriodEnd = entry.PeriodEnd.Date
+                });
+            }
             context.SaveChanges();
         }
     }

@@ -11,7 +11,10 @@ namespace ProducerService
         [OperationContract]
         decimal GetTax(string municipality, DateTime dateTime);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void InsertScheduledTax(TaxModel newRecord);
+
+        [OperationContract(IsOneWay = true)]
+        void UploadMunicipalitiesDataJson(FileUpload file);
     }
 }
