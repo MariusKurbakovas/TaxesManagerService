@@ -12,7 +12,7 @@ namespace ConsumerService
             //Geting taxes of municipality at specified date
             try
             {
-                Console.WriteLine(proxy.GetTax(null, DateTime.Now.AddYears(-1)));
+                Console.WriteLine(proxy.GetTax("Vilnius", DateTime.Now.AddYears(-1)));
             }
             catch (Exception e)
             {
@@ -29,6 +29,7 @@ namespace ConsumerService
                 {
                     proxy.UploadMunicipalitiesDataJson(fsSource);
                 }
+                Console.WriteLine("File import successful.");
             }
             catch (Exception e)
             {
@@ -39,7 +40,7 @@ namespace ConsumerService
             //Inserting new scheduled tax
             var scheduledTaxToAdd = new TaxesManagerService.TaxModel()
             {
-                Municipality = null,
+                Municipality = "Vilnius",
                 PeriodStart = DateTime.Parse("2016-05-04"),
                 PeriodEnd = DateTime.Parse("2016-07-02"),
                 Tax = (decimal)0.5
@@ -47,6 +48,7 @@ namespace ConsumerService
             try
             {
                 proxy.InsertScheduledTax(scheduledTaxToAdd);
+                Console.WriteLine("New tax inserted successfuly.");
             }
             catch (Exception e)
             {
