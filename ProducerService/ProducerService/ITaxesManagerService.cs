@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using ProducerService.Models;
 
@@ -11,10 +10,10 @@ namespace ProducerService
         [OperationContract]
         decimal GetTax(string municipality, DateTime dateTime);
 
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         void InsertScheduledTax(TaxModel newRecord);
 
-        [OperationContract(IsOneWay = true)]
-        void UploadMunicipalitiesDataJson(FileUpload file);
+        [OperationContract]
+        void UploadMunicipalitiesDataJson(FileUploadModel file);
     }
 }

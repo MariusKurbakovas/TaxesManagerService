@@ -4,7 +4,7 @@ using System.ServiceModel;
 namespace ProducerService.Models
 {
     [MessageContract]
-    public class FileUpload
+    public class FileUploadModel
     {
         [MessageBodyMember(Order = 1)]
         public Stream FileByteStream;
