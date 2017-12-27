@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Net;
 using System.ServiceModel.Web;
 using Newtonsoft.Json;
@@ -33,6 +34,11 @@ namespace ProducerService
             {
                 _taxDataManager.InsertScheduledTax(newRecord);
             }
+            catch (DbEntityValidationException)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = HttpStatusCode.BadRequest;
+            }
             catch (Exception)
             {
                 OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
@@ -42,21 +48,22 @@ namespace ProducerService
 
         public void UploadMunicipalitiesDataJson (FileUploadModel file)
         {
-            FileManager _fileManager = new FileManager();
+            IFileManager _fileManager = new FileManager();
             try
             {
                 var fileText = _fileManager.GetTextFromFileByteStream(file.FileByteStream);
                 var taxData = JsonConvert.DeserializeObject<List<TaxModel>>(fileText);
                 _taxDataManager.ImportTaxData(taxData);
             }
-            //TODO: deal with exception
-            catch (JsonException ex)
+            catch (JsonException)
             {
-                throw ex;
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = HttpStatusCode.BadRequest;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = HttpStatusCode.InternalServerError;
             }
         }
     }

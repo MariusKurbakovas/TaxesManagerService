@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace ProducerService.DataManagers
 {
-    public class FileManager
+    public class FileManager : IFileManager
     {
         public string GetTextFromFileByteStream(Stream fileByteStream)
         {
@@ -12,17 +11,7 @@ namespace ProducerService.DataManagers
             {
                 reader = new StreamReader(fileByteStream);
                 string text = reader.ReadToEnd();
-                reader.Close();
                 return text;
-            }
-            //TODO: deal with exceptions
-            catch (IOException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
             finally
             {

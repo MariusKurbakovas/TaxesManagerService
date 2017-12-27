@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManagers\FileManager.cs" />
+    <Compile Include="DataManagers\IFileManager.cs" />
     <Compile Include="DataManagers\ITaxDataManager.cs" />
     <Compile Include="DataManagers\TaxDataManager.cs" />
     <Compile Include="DataModels\DataBaseModel.cs" />

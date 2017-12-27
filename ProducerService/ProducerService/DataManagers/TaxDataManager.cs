@@ -20,22 +20,14 @@ namespace ProducerService.DataManagers
 
         public decimal GetTax(string municipality, DateTime date)
         {
-            try
-            {
-                var tax = context.Set<ScheduledTaxesDataModel>()
-                    .Include(x => x.Municipality)
-                    .Where(x => x.Municipality.Name == municipality && x.PeriodStart <= date && x.PeriodEnd >= date)
-                    .ToList()
-                    .OrderBy(x => x.PeriodEnd - x.PeriodStart)
-                    .First().Tax;
+            var tax = context.Set<ScheduledTaxesDataModel>()
+                .Include(x => x.Municipality)
+                .Where(x => x.Municipality.Name == municipality && x.PeriodStart <= date && x.PeriodEnd >= date)
+                .ToList()
+                .OrderBy(x => x.PeriodEnd - x.PeriodStart)
+                .First().Tax;
 
-                return tax;
-            }
-            //TODO: no entry found
-            catch (InvalidOperationException e)
-            {
-                throw e;
-            }
+            return tax;
         }
 
         public void InsertScheduledTax(TaxModel newEntry)
