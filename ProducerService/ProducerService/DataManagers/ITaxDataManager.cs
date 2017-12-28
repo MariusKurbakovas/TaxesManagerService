@@ -9,5 +9,6 @@ namespace ProducerService.DataManagers
         decimal GetTax(string municipality, DateTime date);
         void InsertScheduledTax(TaxModel newRecord);
         void ImportTaxData(List<TaxModel> newData);
+        void ClearTaxData();
     }
 }

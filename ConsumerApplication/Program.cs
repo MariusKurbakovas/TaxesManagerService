@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace ConsumerService
+namespace ConsumerApplication
 {
     class Program
     {
@@ -9,19 +9,20 @@ namespace ConsumerService
         {
             var proxy = new TaxesManagerService.TaxesManagerServiceClient();
 
-            //Geting taxes of municipality at specified date
+            //Deleting all taxes from the service
             try
             {
-                Console.WriteLine(proxy.GetTax("Vilnius", DateTime.Now.AddYears(-1)));
+                proxy.ClearTaxData();
+                Console.WriteLine("Tax data cleared successfuly.");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to find specified tax info.");
+                Console.WriteLine("Failed to delete data.");
                 Console.WriteLine(e.Message);
             }
 
             //Importing municipalities data from json file
-            string pathSource = @"C:\Users\Vartotojas\Desktop\data.json";
+            string pathSource = "../../data.json";
             try
             {
                 using (FileStream fsSource = new FileStream(pathSource,
@@ -34,6 +35,27 @@ namespace ConsumerService
             catch (Exception e)
             {
                 Console.WriteLine("Failed to import file.");
+                Console.WriteLine(e.Message);
+            }
+
+            //Geting taxes of municipality at specified date
+            try
+            {
+                Console.WriteLine(proxy.GetTax("Vilnius", DateTime.Now.AddYears(-1)));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to find specified tax info.");
+                Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+                Console.WriteLine(proxy.GetTax("Vilnius", DateTime.Parse("2016-12-25")));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to find specified tax info.");
                 Console.WriteLine(e.Message);
             }
 

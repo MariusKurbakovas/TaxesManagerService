@@ -36,4 +36,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClearTaxData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearTaxDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{35E8910C-1B1B-4D58-967C-0195EADE4E6A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsumerService</RootNamespace>
-    <AssemblyName>ConsumerService</AssemblyName>
+    <RootNamespace>ConsumerApplication</RootNamespace>
+    <AssemblyName>ConsumerApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\TaxesManagerService\ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse.datasource">
+    <None Include="Connected Services\TaxesManagerService\ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\TaxesManagerService\TaxesManagerService.wsdl" />

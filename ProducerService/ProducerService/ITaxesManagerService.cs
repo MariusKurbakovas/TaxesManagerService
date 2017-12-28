@@ -15,5 +15,8 @@ namespace ProducerService
 
         [OperationContract]
         void UploadMunicipalitiesDataJson(FileUploadModel file);
+
+        [OperationContract]
+        void ClearTaxData();
     }
 }

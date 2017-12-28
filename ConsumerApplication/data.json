@@ -1,0 +1,38 @@
+[
+	{
+		"Municipality": "Vilnius",
+		"PeriodStart": "2016-01-01",
+		"PeriodEnd": "2016-12-31",
+		"Tax": "0.2"
+	},
+	{
+		"Municipality": "Vilnius",
+		"PeriodStart": "2016-05-01",
+		"PeriodEnd": "2016-05-31",
+		"Tax": "0.4"
+	},
+	{
+		"Municipality": "Vilnius",
+		"PeriodStart": "2016-01-01",
+		"PeriodEnd": "2016-01-01",
+		"Tax": "0.1"
+	},
+	{
+		"Municipality": "Vilnius",
+		"PeriodStart": "2016-12-25",
+		"PeriodEnd": "2016-12-25",
+		"Tax": "0.1"
+	},
+	{
+		"Municipality": "Klaipėda",
+		"PeriodStart": "2016-05-04",
+		"PeriodEnd": "2016-07-02",
+		"Tax": "0.3"
+	},
+	{
+		"Municipality": "Kaunas",
+		"PeriodStart": "2016-07-02",
+		"PeriodEnd": "2016-07-10",
+		"Tax": "0.1"
+	}
+]

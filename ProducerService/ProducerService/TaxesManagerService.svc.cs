@@ -48,6 +48,7 @@ namespace ProducerService
 
         public void UploadMunicipalitiesDataJson (FileUploadModel file)
         {
+            //TODO: Dependency injection
             IFileManager _fileManager = new FileManager();
             try
             {
@@ -59,6 +60,19 @@ namespace ProducerService
             {
                 OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
                 response.StatusCode = HttpStatusCode.BadRequest;
+            }
+            catch (Exception)
+            {
+                OutgoingWebResponseContext response = WebOperationContext.Current.OutgoingResponse;
+                response.StatusCode = HttpStatusCode.InternalServerError;
+            }
+        }
+
+        public void ClearTaxData()
+        {
+            try
+            {
+                _taxDataManager.ClearTaxData();
             }
             catch (Exception)
             {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsumerService.TaxesManagerService {
+namespace ConsumerApplication.TaxesManagerService {
     using System.Runtime.Serialization;
     using System;
     
@@ -117,17 +117,23 @@ namespace ConsumerService.TaxesManagerService {
         System.Threading.Tasks.Task<decimal> GetTaxAsync(string municipality, System.DateTime dateTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/InsertScheduledTax", ReplyAction="http://tempuri.org/ITaxesManagerService/InsertScheduledTaxResponse")]
-        void InsertScheduledTax(ConsumerService.TaxesManagerService.TaxModel newRecord);
+        void InsertScheduledTax(ConsumerApplication.TaxesManagerService.TaxModel newRecord);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/InsertScheduledTax", ReplyAction="http://tempuri.org/ITaxesManagerService/InsertScheduledTaxResponse")]
-        System.Threading.Tasks.Task InsertScheduledTaxAsync(ConsumerService.TaxesManagerService.TaxModel newRecord);
+        System.Threading.Tasks.Task InsertScheduledTaxAsync(ConsumerApplication.TaxesManagerService.TaxModel newRecord);
         
         // CODEGEN: Generating message contract since the operation UploadMunicipalitiesDataJson is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJson", ReplyAction="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJsonResponse")]
-        ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse UploadMunicipalitiesDataJson(ConsumerService.TaxesManagerService.FileUploadModel request);
+        ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse UploadMunicipalitiesDataJson(ConsumerApplication.TaxesManagerService.FileUploadModel request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJson", ReplyAction="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJsonResponse")]
-        System.Threading.Tasks.Task<ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> UploadMunicipalitiesDataJsonAsync(ConsumerService.TaxesManagerService.FileUploadModel request);
+        System.Threading.Tasks.Task<ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> UploadMunicipalitiesDataJsonAsync(ConsumerApplication.TaxesManagerService.FileUploadModel request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/ClearTaxData", ReplyAction="http://tempuri.org/ITaxesManagerService/ClearTaxDataResponse")]
+        void ClearTaxData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITaxesManagerService/ClearTaxData", ReplyAction="http://tempuri.org/ITaxesManagerService/ClearTaxDataResponse")]
+        System.Threading.Tasks.Task ClearTaxDataAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -158,12 +164,12 @@ namespace ConsumerService.TaxesManagerService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ITaxesManagerServiceChannel : ConsumerService.TaxesManagerService.ITaxesManagerService, System.ServiceModel.IClientChannel {
+    public interface ITaxesManagerServiceChannel : ConsumerApplication.TaxesManagerService.ITaxesManagerService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TaxesManagerServiceClient : System.ServiceModel.ClientBase<ConsumerService.TaxesManagerService.ITaxesManagerService>, ConsumerService.TaxesManagerService.ITaxesManagerService {
+    public partial class TaxesManagerServiceClient : System.ServiceModel.ClientBase<ConsumerApplication.TaxesManagerService.ITaxesManagerService>, ConsumerApplication.TaxesManagerService.ITaxesManagerService {
         
         public TaxesManagerServiceClient() {
         }
@@ -192,34 +198,42 @@ namespace ConsumerService.TaxesManagerService {
             return base.Channel.GetTaxAsync(municipality, dateTime);
         }
         
-        public void InsertScheduledTax(ConsumerService.TaxesManagerService.TaxModel newRecord) {
+        public void InsertScheduledTax(ConsumerApplication.TaxesManagerService.TaxModel newRecord) {
             base.Channel.InsertScheduledTax(newRecord);
         }
         
-        public System.Threading.Tasks.Task InsertScheduledTaxAsync(ConsumerService.TaxesManagerService.TaxModel newRecord) {
+        public System.Threading.Tasks.Task InsertScheduledTaxAsync(ConsumerApplication.TaxesManagerService.TaxModel newRecord) {
             return base.Channel.InsertScheduledTaxAsync(newRecord);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse ConsumerService.TaxesManagerService.ITaxesManagerService.UploadMunicipalitiesDataJson(ConsumerService.TaxesManagerService.FileUploadModel request) {
+        ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse ConsumerApplication.TaxesManagerService.ITaxesManagerService.UploadMunicipalitiesDataJson(ConsumerApplication.TaxesManagerService.FileUploadModel request) {
             return base.Channel.UploadMunicipalitiesDataJson(request);
         }
         
         public void UploadMunicipalitiesDataJson(System.IO.Stream FileByteStream) {
-            ConsumerService.TaxesManagerService.FileUploadModel inValue = new ConsumerService.TaxesManagerService.FileUploadModel();
+            ConsumerApplication.TaxesManagerService.FileUploadModel inValue = new ConsumerApplication.TaxesManagerService.FileUploadModel();
             inValue.FileByteStream = FileByteStream;
-            ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse retVal = ((ConsumerService.TaxesManagerService.ITaxesManagerService)(this)).UploadMunicipalitiesDataJson(inValue);
+            ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse retVal = ((ConsumerApplication.TaxesManagerService.ITaxesManagerService)(this)).UploadMunicipalitiesDataJson(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> ConsumerService.TaxesManagerService.ITaxesManagerService.UploadMunicipalitiesDataJsonAsync(ConsumerService.TaxesManagerService.FileUploadModel request) {
+        System.Threading.Tasks.Task<ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> ConsumerApplication.TaxesManagerService.ITaxesManagerService.UploadMunicipalitiesDataJsonAsync(ConsumerApplication.TaxesManagerService.FileUploadModel request) {
             return base.Channel.UploadMunicipalitiesDataJsonAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ConsumerService.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> UploadMunicipalitiesDataJsonAsync(System.IO.Stream FileByteStream) {
-            ConsumerService.TaxesManagerService.FileUploadModel inValue = new ConsumerService.TaxesManagerService.FileUploadModel();
+        public System.Threading.Tasks.Task<ConsumerApplication.TaxesManagerService.UploadMunicipalitiesDataJsonResponse> UploadMunicipalitiesDataJsonAsync(System.IO.Stream FileByteStream) {
+            ConsumerApplication.TaxesManagerService.FileUploadModel inValue = new ConsumerApplication.TaxesManagerService.FileUploadModel();
             inValue.FileByteStream = FileByteStream;
-            return ((ConsumerService.TaxesManagerService.ITaxesManagerService)(this)).UploadMunicipalitiesDataJsonAsync(inValue);
+            return ((ConsumerApplication.TaxesManagerService.ITaxesManagerService)(this)).UploadMunicipalitiesDataJsonAsync(inValue);
+        }
+        
+        public void ClearTaxData() {
+            base.Channel.ClearTaxData();
+        }
+        
+        public System.Threading.Tasks.Task ClearTaxDataAsync() {
+            return base.Channel.ClearTaxDataAsync();
         }
     }
 }

@@ -24,6 +24,12 @@
     <wsdl:part name="parameters" element="tns:FileUploadModel" />
   </wsdl:message>
   <wsdl:message name="ITaxesManagerService_UploadMunicipalitiesDataJson_OutputMessage" />
+  <wsdl:message name="ITaxesManagerService_ClearTaxData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearTaxData" />
+  </wsdl:message>
+  <wsdl:message name="ITaxesManagerService_ClearTaxData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearTaxDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITaxesManagerService">
     <wsdl:operation name="GetTax">
       <wsdl:input wsaw:Action="http://tempuri.org/ITaxesManagerService/GetTax" message="tns:ITaxesManagerService_GetTax_InputMessage" />
@@ -36,6 +42,10 @@
     <wsdl:operation name="UploadMunicipalitiesDataJson">
       <wsdl:input wsaw:Action="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJson" name="FileUploadModel" message="tns:FileUploadModel" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJsonResponse" message="tns:ITaxesManagerService_UploadMunicipalitiesDataJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearTaxData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITaxesManagerService/ClearTaxData" message="tns:ITaxesManagerService_ClearTaxData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITaxesManagerService/ClearTaxDataResponse" message="tns:ITaxesManagerService_ClearTaxData_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITaxesManagerService" type="tns:ITaxesManagerService">
@@ -61,6 +71,15 @@
     <wsdl:operation name="UploadMunicipalitiesDataJson">
       <soap:operation soapAction="http://tempuri.org/ITaxesManagerService/UploadMunicipalitiesDataJson" style="document" />
       <wsdl:input name="FileUploadModel">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearTaxData">
+      <soap:operation soapAction="http://tempuri.org/ITaxesManagerService/ClearTaxData" style="document" />
+      <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>

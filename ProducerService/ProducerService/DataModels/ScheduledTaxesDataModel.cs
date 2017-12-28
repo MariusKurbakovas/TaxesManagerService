@@ -11,6 +11,7 @@ namespace ProducerService.DataModels
         public int Id { get; set; }
         [Required]
         public virtual MunicipalityDataModel Municipality { get; set; }
+        //TODO: figure out can taxes be scheduled in any way, or only yearly/monthly/weekly/daily
         [Column(TypeName = "Date")]
         public DateTime PeriodStart { get; set; }
         [Column(TypeName = "Date")]

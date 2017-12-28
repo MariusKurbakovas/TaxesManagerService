@@ -13,7 +13,8 @@ namespace ProducerService.DataManagers
 
         public List<ScheduledTaxesDataModel> GetAllMunicipalityTaxes(string municipality)
         {
-            var municipalityTaxes = context.Set<ScheduledTaxesDataModel>().Include(x => x.Municipality)
+            var municipalityTaxes = context.Set<ScheduledTaxesDataModel>()
+                .Include(x => x.Municipality)
                 .Where(x => x.Municipality.Name == municipality).ToList();
             return municipalityTaxes;
         }
@@ -24,6 +25,7 @@ namespace ProducerService.DataManagers
                 .Include(x => x.Municipality)
                 .Where(x => x.Municipality.Name == municipality && x.PeriodStart <= date && x.PeriodEnd >= date)
                 .ToList()
+                //The tax with the shortests period is taken
                 .OrderBy(x => x.PeriodEnd - x.PeriodStart)
                 .First().Tax;
 
@@ -53,6 +55,7 @@ namespace ProducerService.DataManagers
             context.SaveChanges();
         }
 
+        //TODO: figure out how to deal with old data (keep it or delete it) when imporing from file
         public void ImportTaxData(List<TaxModel> newData)
         {
             var newDataMunicipalities = newData.Select(x => new MunicipalityDataModel
@@ -79,6 +82,11 @@ namespace ProducerService.DataManagers
                 });
             }
             context.SaveChanges();
+        }
+
+        public void ClearTaxData()
+        {
+            context.Database.ExecuteSqlCommand("delete from [dbo].[ScheduledTaxesDataModels]");
         }
     }
 }
